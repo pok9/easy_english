@@ -12,7 +12,7 @@ class _NineCommonSubjectsPageState extends State<NineCommonSubjectsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('คำศัพท์ 9 วิชาสามัญ'),
+        title: Text('คำศัพท์ 9 วิชาสามัญtest'),
       ),
       body: GridView.count(
           crossAxisCount: 2,
