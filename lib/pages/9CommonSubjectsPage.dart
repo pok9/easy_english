@@ -8,25 +8,42 @@ class NineCommonSubjectsPage extends StatefulWidget {
 }
 
 class _NineCommonSubjectsPageState extends State<NineCommonSubjectsPage> {
+  int lock = 1;
   @override
   Widget build(BuildContext context) {
+    int num = 1;
+    
     return Scaffold(
       appBar: AppBar(
         title: Text('คำศัพท์ 9 วิชาสามัญ'),
       ),
       body: GridView.count(
-          crossAxisCount: 2,
-          crossAxisSpacing: 10.0,
-          mainAxisSpacing: 10.0,
+          crossAxisCount: 3,
+          crossAxisSpacing: 5.0,
+          mainAxisSpacing: 5.0,
           shrinkWrap: true,
           children: List.generate(50, (index) {
             return Padding(
               padding: const EdgeInsets.all(10.0),
-              child: Container(
-                decoration: BoxDecoration(
-                    image: DecorationImage(
-                        image: NetworkImage('https://i.pinimg.com/564x/2f/64/d6/2f64d64d7b4823b76f735b1e9834a28c.jpg'), fit: BoxFit.cover),
-                    borderRadius: BorderRadius.all(Radius.circular(20.0))),
+              child: GestureDetector(
+                onTap: () {
+                  lock+=1;
+                  setState(() {
+                    
+                  });
+                },
+                child: Container(
+                  color: (index < lock-1) ? Colors.green :(index == lock-1)? Colors.blueAccent : Colors.grey,
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        num.toString() + "-" + ((num += 20) - 1).toString(),
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
+                ),
               ),
             );
           })),
