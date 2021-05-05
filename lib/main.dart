@@ -1,4 +1,4 @@
-import 'package:easy_english/pages/9CommonSubjectsPage.dart';
+import 'package:easy_english/pages/9CommonSubjectsPage/9CommonSubjectsPage.dart';
 import 'package:flutter/material.dart';
 
 void main() {
