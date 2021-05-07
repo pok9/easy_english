@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class Page_0 extends StatefulWidget {
@@ -15,10 +16,95 @@ class _Page_0State extends State<Page_0> {
     super.initState();
   }
 
-  double percen = 0.05;
-  int percen2 = 5;
+  double percen = 0.00;
+  int percen2 = 0;
+
+  int index = 0;
+  List<String> thai = [
+    "มากมาย",
+    "(อยู่) ข้างบน เหนือ",
+    "test3",
+    "test4",
+    "test5",
+    "test6",
+    "test7",
+    "test8",
+    "test9",
+    "test10",
+    "test11",
+    "test12",
+    "test13",
+    "test14",
+    "test15",
+    "test16",
+    "test17",
+    "test18",
+    "test19",
+    "test20"
+  ];
+  List<String> eng = [
+    "a lot",
+    "above",
+    "heart3",
+    "heart4",
+    "heart5",
+    "heart6",
+    "heart7",
+    "heart8",
+    "heart9",
+    "heart10",
+    "heart11",
+    "heart12",
+    "heart13",
+    "heart14",
+    "heart15",
+    "heart16",
+    "heart17",
+    "heart18",
+    "heart19",
+    "heart20"
+  ];
+
+  List<String> precis = [
+    "(det.),(pron)",
+    "(prep.),(adv.)",
+    "n3",
+    "n4",
+    "n5",
+    "n6",
+    "n7",
+    "n8",
+    "n9",
+    "n10",
+    "n11",
+    "n12",
+    "n13",
+    "n14",
+    "n15",
+    "n16",
+    "n17",
+    "n18",
+    "n19",
+    "n20"
+  ];
+
+  
+
+  final FlutterTts flutterTts = FlutterTts();
+
+  _speak() async {
+    // await flutterTts.setLanguage("language")
+    print(await flutterTts.getLanguages);
+    await flutterTts.setLanguage("en-US");
+    await flutterTts.setPitch(1);
+    // await flutterTts.set
+    await flutterTts.speak(eng[index]);
+  }
+
   @override
   Widget build(BuildContext context) {
+    _speak();
+
     return Container(
       child: Scaffold(
         appBar: AppBar(
@@ -61,8 +147,8 @@ class _Page_0State extends State<Page_0> {
                   Container(
                     height: 250,
                     child: Card(
-                      child: Image.network(
-                        'https://static.thairath.co.th/media/Dtbezn3nNUxytg04OWCIxY6FUEAjCYwzeb30m2znTiOt7R.jpg',
+                      child: Image.asset(
+                        'images/page_0/$index.png',
                         fit: BoxFit.cover,
                       ),
                       shape: RoundedRectangleBorder(
@@ -76,11 +162,14 @@ class _Page_0State extends State<Page_0> {
                     height: 10,
                   ),
                   Text(
-                    "หัวใจ",
+                    thai[index],
                     style: TextStyle(fontSize: 40),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text(
-                    "heart (n)",
+                    eng[index] + " "+precis[index]+"",
                     style: TextStyle(fontSize: 40),
                   ),
                   SizedBox(
@@ -92,7 +181,7 @@ class _Page_0State extends State<Page_0> {
                       Container(
                           width: 100,
                           height: 50,
-                          child: (percen <= 0.05)
+                          child: (percen <= 0.00)
                               ? ElevatedButton(
                                   style: ElevatedButton.styleFrom(
                                     primary: Colors.grey,
@@ -110,8 +199,13 @@ class _Page_0State extends State<Page_0> {
                                   ),
                                   child: Text('ก่อนหน้า'),
                                   onPressed: () {
+                                    index -= 1;
                                     percen -= 0.05;
                                     percen2 -= 5;
+                                    if (percen < 0.05) {
+                                      percen = 0.00;
+                                      percen2 = 0;
+                                    }
                                     print("down " + percen.toString());
                                     setState(() {});
                                   },
@@ -127,8 +221,14 @@ class _Page_0State extends State<Page_0> {
                           child: Text('ถัดไป'),
                           onPressed: () {
                             print('Pressed');
+                            index += 1;
                             percen += 0.05;
                             percen2 += 5;
+                            if (percen > 1.00) {
+                              percen = 1.00;
+                              percen2 = 100;
+                              index = 19;
+                            }
                             setState(() {});
                           },
                         ),
