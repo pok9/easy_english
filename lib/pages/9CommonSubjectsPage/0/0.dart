@@ -16,76 +16,76 @@ class _Page_0State extends State<Page_0> {
     super.initState();
   }
 
-  double percen = 0.00;
-  int percen2 = 0;
+  double percen = 0.05;
+  int percen2 = 5;
 
   int index = 0;
   List<String> thai = [
-    "มากมาย",
-    "(อยู่) ข้างบน เหนือ",
-    "test3",
-    "test4",
-    "test5",
-    "test6",
-    "test7",
-    "test8",
-    "test9",
-    "test10",
-    "test11",
-    "test12",
-    "test13",
-    "test14",
-    "test15",
-    "test16",
-    "test17",
-    "test18",
-    "test19",
-    "test20"
+    "สุขภาพ",
+    "ฮอร์โมน",
+    "อ่อนแรง",
+    "เล็กมาก",
+    "ทรมาน",
+    "ขับรถ",
+    "ป้องกัน",
+    "แนวโน้ม",
+    "ซื้อ",
+    "การขายปลีก",
+    "ช่างคิด",
+    "การติดเชื้อ",
+    "สำรวจ",
+    "มือสมัครเล่น",
+    "เติม",
+    "สำผัส",
+    "ปฎิเสธ",
+    "อดทน",
+    "ความสำเร็จ",
+    "เต็มที่"
   ];
   List<String> eng = [
-    "a lot",
-    "above",
-    "heart3",
-    "heart4",
-    "heart5",
-    "heart6",
-    "heart7",
-    "heart8",
-    "heart9",
-    "heart10",
-    "heart11",
-    "heart12",
-    "heart13",
-    "heart14",
-    "heart15",
-    "heart16",
-    "heart17",
-    "heart18",
-    "heart19",
-    "heart20"
+    "health",
+    "hormone",
+    "languish",
+    "minuscule",
+    "suffer",
+    "propel",
+    "protect",
+    "trend",
+    "purchase",
+    "retail",
+    "visionary",
+    "infection",
+    "explore",
+    "amateur",
+    "replenish",
+    "touch",
+    "reject",
+    "tolerate",
+    "accomplishment",
+    "sheer"
   ];
 
   List<String> precis = [
-    "(det.),(pron)",
-    "(prep.),(adv.)",
-    "n3",
-    "n4",
-    "n5",
-    "n6",
-    "n7",
-    "n8",
-    "n9",
-    "n10",
-    "n11",
-    "n12",
-    "n13",
-    "n14",
-    "n15",
-    "n16",
-    "n17",
-    "n18",
-    "n19",
-    "n20"
+    "(n.)",
+    "(n.)",
+    "(v.)",
+    "(a.)",
+    "(v.)",
+    "(v.)",
+    "(v.)",
+    "(n.)",
+    "(n./v.)",
+    "(n./v./a.)",
+    "(a.)",
+    "(n.)",
+    "(v.)",
+    "(a./n.)",
+    "(v.)",
+    "(v.)",
+    "(v.)",
+    "(v.)",
+    "(n.)",
+    "(a.)"
   ];
 
   
@@ -116,6 +116,7 @@ class _Page_0State extends State<Page_0> {
             children: [
               Column(
                 // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                // mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +149,7 @@ class _Page_0State extends State<Page_0> {
                     height: 250,
                     child: Card(
                       child: Image.asset(
-                        'images/page_0/$index.png',
+                        'images/page_0/$index.jpg',
                         fit: BoxFit.cover,
                       ),
                       shape: RoundedRectangleBorder(
