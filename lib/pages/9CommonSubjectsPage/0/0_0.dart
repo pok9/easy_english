@@ -1,3 +1,4 @@
+import 'package:easy_english/pages/9CommonSubjectsPage/0/0_1.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_english/pages/9CommonSubjectsPage/0/0.dart';
 
@@ -23,7 +24,7 @@ class _Page_0_0State extends State<Page_0_0> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (BuildContext context) => Container()));
+                          builder: (BuildContext context) => Page_0_1()));
                 },
                 child: Card(
                     child: Container(
