@@ -1,3 +1,4 @@
+import 'package:easy_english/pages/9CommonSubjectsPage/0/0_0.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
@@ -20,6 +21,7 @@ class _Page_0State extends State<Page_0> {
   int percen2 = 5;
 
   int index = 0;
+  int number19 = 0;
   List<String> thai = [
     "สุขภาพ",
     "ฮอร์โมน",
@@ -88,13 +90,11 @@ class _Page_0State extends State<Page_0> {
     "(a.)"
   ];
 
-  
-
   final FlutterTts flutterTts = FlutterTts();
 
   _speak() async {
     // await flutterTts.setLanguage("language")
-    print(await flutterTts.getLanguages);
+    // print(await flutterTts.getLanguages);
     await flutterTts.setLanguage("en-US");
     await flutterTts.setPitch(1);
     // await flutterTts.set
@@ -170,7 +170,7 @@ class _Page_0State extends State<Page_0> {
                     height: 10,
                   ),
                   Text(
-                    eng[index] + " "+precis[index]+"",
+                    eng[index] + " " + precis[index] + "",
                     style: TextStyle(fontSize: 40),
                   ),
                   SizedBox(
@@ -200,6 +200,7 @@ class _Page_0State extends State<Page_0> {
                                   ),
                                   child: Text('ก่อนหน้า'),
                                   onPressed: () {
+                                    number19 = 0;
                                     index -= 1;
                                     percen -= 0.05;
                                     percen2 -= 5;
@@ -229,6 +230,21 @@ class _Page_0State extends State<Page_0> {
                               percen = 1.00;
                               percen2 = 100;
                               index = 19;
+                            }
+                            // if(index == 19){
+                            //   print("index = "+index.toString());
+                            // }
+
+                            print("index = " + index.toString());
+                            if (number19 >= 1) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                          Page_0_0()));
+                            }
+                            if (index == 19) {
+                              number19++;
                             }
                             setState(() {});
                           },
